@@ -1,4 +1,4 @@
-package by.cats.battleship;
+package by.cats;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -9,5 +9,4 @@ public class BattleshipApplication {
     public static void main(String[] args) {
         SpringApplication.run(BattleshipApplication.class, args);
     }
-
 }

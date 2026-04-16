@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ru">
+<head><meta charset="UTF-8"><title>Морской Бой</title></head>
+<body>
+<h1>Добро пожаловать в игру, <span th:text="${nickname}">Игрок</span>!</h1>
+<form th:action="@{/logout}" method="post">
+    <button type="submit">Выйти из аккаунта</button>
+</form>
+</body>
+</html>

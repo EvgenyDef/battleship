@@ -1,7 +1,13 @@
+//plugins {
+//    id 'java'
+//    id 'org.springframework.boot' version '4.0.3'
+//    id 'io.spring.dependency-management' version '1.1.7'
+//}
+
 plugins {
     id 'java'
-    id 'org.springframework.boot' version '4.0.3'
-    id 'io.spring.dependency-management' version '1.1.7'
+    id 'org.springframework.boot' version '3.3.0' // Или 3.2.5
+    id 'io.spring.dependency-management' version '1.1.5'
 }
 
 group = 'by.cats'
@@ -24,17 +30,33 @@ repositories {
     mavenCentral()
 }
 
+//dependencies {
+//    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+//    implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+//    implementation 'org.springframework.boot:spring-boot-starter-web:4.1.0-M3'
+//    implementation 'org.springframework.boot:spring-boot-starter-validation:4.1.0-M3'
+//    implementation 'org.springframework.boot:spring-boot-starter-security:4.1.0-M4'
+//    compileOnly 'org.projectlombok:lombok'
+//    runtimeOnly 'org.postgresql:postgresql'
+//    annotationProcessor 'org.projectlombok:lombok'
+//    testImplementation 'org.springframework.boot:spring-boot-starter-data-jpa-test'
+//    testImplementation 'org.springframework.boot:spring-boot-starter-thymeleaf-test'
+//    testImplementation 'org.springframework.boot:spring-boot-starter-webmvc-test'
+//    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+//}
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
-    implementation 'org.springframework.boot:spring-boot-starter-webmvc'
+    implementation 'org.springframework.boot:spring-boot-starter-web'       // Версию убрали
+    implementation 'org.springframework.boot:spring-boot-starter-validation' // Версию убрали
+    implementation 'org.springframework.boot:spring-boot-starter-security'   // Версию убрали
+
     compileOnly 'org.projectlombok:lombok'
     runtimeOnly 'org.postgresql:postgresql'
     annotationProcessor 'org.projectlombok:lombok'
-    testImplementation 'org.springframework.boot:spring-boot-starter-data-jpa-test'
-    testImplementation 'org.springframework.boot:spring-boot-starter-thymeleaf-test'
-    testImplementation 'org.springframework.boot:spring-boot-starter-webmvc-test'
-    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation 'org.springframework.security:spring-security-test'
 }
 
 tasks.named('test') {

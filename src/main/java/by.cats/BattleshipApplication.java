@@ -10,3 +10,4 @@ public class BattleshipApplication {
         SpringApplication.run(BattleshipApplication.class, args);
     }
 }
+

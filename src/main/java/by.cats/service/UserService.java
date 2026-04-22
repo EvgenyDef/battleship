@@ -22,15 +22,6 @@ public class UserService {
         return userRepository.findByName(name);
     }
 
-//    public User save(String name) {
-//        User user = User.builder()
-//                .name(name)
-//                .avatarName("avatar1")
-//                .build();
-//
-//        return userRepository.save(user);
-//    }
-
     @Autowired
     public UserService(UserRepository userRepository) {
         this.userRepository = userRepository;

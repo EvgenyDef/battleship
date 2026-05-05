@@ -10,22 +10,63 @@ package by.cats.Model;
 Метод для проверки, остались ли еще живые корабли на поле.
 */
 
-import lombok.AllArgsConstructor;
 
-import java.util.Arrays;
+import lombok.Getter;
+import lombok.Setter;
+
+import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.IntStream;
 
 
 public class Board {
     private CellStatus[][] grid;
+
+    @Getter
+    @Setter
     private List<Ship> ships;
 
-    public void initGrid() {
-        grid = new CellStatus[10][10];
+
+    public Board() {
+        this.grid = new CellStatus[10][10];
+        this.ships = new ArrayList<>();
+
+        for (int i = 0; i < 10; i++) {
+            for (int j = 0; j < 10; j++) {
+                grid[i][j] = CellStatus.EMPTY;
+            }
+        }
     }
 
-    public void checkLiveShips() {
+    public void setCellStatus(Integer x, Integer y, CellStatus cellStatus) {
+        grid[x][y] = cellStatus;
+    }
 
+    public CellStatus getCellStatus(Integer x, Integer y) {
+        return grid[x][y];
+    }
+
+    public boolean checkLiveShips() {
+        boolean flag = false;
+        for (Ship ship : ships) {
+            if (!ship.isSunk())
+                return true;
+        }
+        return false;
+    }
+
+    public Ship getShipAt(int x, int y) {
+        return ships.stream()
+                .filter(ship -> ship.getCoordinates().stream()
+                        .anyMatch(p -> p.getX() == x && p.getY() == y))
+                .findFirst()
+                .orElse(null);
+    }
+
+    public void clear() {
+        for (int i = 0; i < 10; i++) {
+            for (int j = 0; j < 10; j++) {
+                grid[i][j] = CellStatus.EMPTY;
+            }
+        }
     }
 }

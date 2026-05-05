@@ -8,5 +8,5 @@ import lombok.Data;
 public class ApiResponseDto {
     private boolean success;
     private String message;
-    private Object data; // Здесь может быть никнейм или объект игрока
+    private Object data;
 }
